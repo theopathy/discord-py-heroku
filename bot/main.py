@@ -68,6 +68,14 @@ async def say(ctx, *, message):
         await ctx.send(message)
 
 
+# command to make the bot change its status
+@bot.command(name="status", help="Change the bot's status")
+async def status(ctx, *, status):
+    if ctx.author.id == 852677522730909736 or ctx.author.id == "852677522730909736":
+        activity = discord.Game(name=status, type=3)
+        await bot.change_presence(status=discord.Status.online, activity=activity)
+        await ctx.message.delete()
+
 @bot.command(name="color", aliases=["colour"])
 async def color(ctx, *color):
     # if the command is improperly

@@ -76,7 +76,7 @@ async def color(ctx, *color):
         await help.invoke(ctx)
         print("Invalid command format")
         return
-    target_user = ctx.message.mentions[0] if len(ctx.message.mentions) > 0 else ctx.author
+    target_user = ctx.message.mentions[0] if len(ctx.message.mentions) > 0  and ctx.author.guild_permissions.manage_roles else ctx.author
     message = ctx.message
     author  = target_user
     

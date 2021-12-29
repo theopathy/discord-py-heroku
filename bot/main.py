@@ -9,7 +9,7 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user.name}({bot.user.id})")
-    activity = discord.Game(name="Netflix", type=3)
+    activity = discord.Game(name="Gaslighting", type=3)
     await bot.change_presence(status=discord.Status.idle, activity=activity)
 
 @bot.command()
@@ -22,6 +22,7 @@ if __name__ == "__main__":
 # When user says Hello Reply back
 @bot.event
 async def on_message(message):
+    await bot.process_commands(message)
     if message.content.startswith("among us"):
         await message.channel.send("""⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣿⣷⣶⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣾⣿⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀

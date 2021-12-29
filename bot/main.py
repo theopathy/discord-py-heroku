@@ -1,6 +1,7 @@
 import os
 import re
 import discord
+import requests
 import asyncio
 from discord.ext import commands
 

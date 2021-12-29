@@ -31,6 +31,13 @@ async def amongus(ctx):
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣿⣿⣿⣿⣿⠿⠋⠉⠛⠋⠉⠉⠁⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠁""")
 # When user says Hello Reply back
+
+# User command when the person uses the command it takes a person as a parameter and tags them in a message
+@bot.command()
+async def gaslight(ctx, member: discord.Member):
+    await ctx.send(f'{member.mention}\nGaslight\nVerb\n manipulate (someone) by psychological means into doubting their own sanity.')
+
+
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)

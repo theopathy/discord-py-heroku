@@ -78,7 +78,7 @@ async def roll(ctx):
 @bot.command(name="cat", help="Get a random cute cat")
 async def cat(ctx):
     await ctx.message.delete()
-    url = "https://cataas.com/cat/#" + random.randint(0,100000000)
+    url = "https://cataas.com/cat#" + random.randint(0,100000000)
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     response = requests.get(url, headers=headers)
     await ctx.send(response.url)

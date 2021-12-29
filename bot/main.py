@@ -69,16 +69,16 @@ async def say(ctx, *, message):
 
 
 @bot.command(name="color", aliases=["colour"])
-async def color(ctx, *color, target=None):
+async def color(ctx, *color):
     # if the command is improperly
     # formatted, invoke help and exit
     if len(color) == 0:
         await help.invoke(ctx)
         print("Invalid command format")
         return
-
+    target_user = ctx.message.mentions[0] if len(ctx.message.mentions) > 0 else ctx.author
     message = ctx.message
-    author  = ctx.author 
+    author  = target_user
     
     guild   = message.guild
     color_lover = False # flag if used the colourlovers API

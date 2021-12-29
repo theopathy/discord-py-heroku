@@ -3,6 +3,7 @@ import re
 import discord
 import requests
 import asyncio
+import uwuify
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix="!")
@@ -77,12 +78,18 @@ async def roll(ctx):
 @bot.command(name="cat", help="Get a random cute cat")
 async def cat(ctx):
     await ctx.message.delete()
-    url = "https://cataas.com/cat"
+    url = "https://cataas.com/cat/#" + random.randint(0,100000000)
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     response = requests.get(url, headers=headers)
     await ctx.send(response.url)
 
-
+# Command to uwu text.
+# This is a very simple implementation,
+# but it works.
+@bot.command(name="uwu", help="Uwu text", aliases=["owo"])
+async def uwu(ctx, *, text):
+        await ctx.message.delete()
+        await ctx.send(uwuify.uwu(text))
 
 # command to make the bot change its status
 @bot.command(name="status", help="Change the bot's status")

@@ -10,7 +10,7 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 async def on_ready():
     print(f"Logged in as {bot.user.name}({bot.user.id})")
     activity = discord.Game(name="Gaslighting", type=3)
-    await bot.change_presence(status=discord.Status.idle, activity=activity)
+    await bot.change_presence(status=discord.Status.watching, activity=activity)
 
 @bot.command()
 async def ping(ctx):

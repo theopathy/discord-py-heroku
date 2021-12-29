@@ -71,7 +71,7 @@ async def color(ctx, *color):
         return
 
     message = ctx.message
-    author  = message.author 
+    author  = message.mentions[0] if len(message.mentions) > 0 else message.author
     guild   = message.guild
     color_lover = False # flag if used the colourlovers API
 

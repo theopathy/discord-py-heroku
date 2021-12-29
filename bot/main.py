@@ -92,10 +92,7 @@ async def color(ctx, *color, target=None):
 
     # look for hex code match
     re_color = re.compile(r'^\#[0-9A-F]{6}$')
-    if not re_color.match(color):
-        # if not a hex code, use colourlovers API
-        color_lover = True 
-        color = await color_lover_api(color)
+
 
     # remove all color roles in preperation
     # for a new color role

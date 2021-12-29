@@ -18,6 +18,8 @@ async def on_ready():
 
 
 
+
+
 # check if a role is not being used, and delete it
 # this waits a bit before checking since discord
 # likes to take some time before reporting changes
@@ -242,6 +244,15 @@ async def on_message(message):
 ⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣦⣤⣤⣤⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣿⣿⣿⣿⣿⠿⠋⠉⠛⠋⠉⠉⠁⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠁""")
+
+# reply if a message contains a phase 
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
+    if message.content.startswith("hotel motel"):
+        await message.channel.send("HOLIDAY INN")
+
+
 
 if __name__ == "__main__":
     bot.run(TOKEN)

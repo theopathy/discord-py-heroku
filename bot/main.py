@@ -84,7 +84,7 @@ async def color(ctx, *color):
         # process went.
         removed = await remove_colors(ctx, author)
         if removed > 0:
-            await ctx.send("color vaporized !")
+            await ctx.send(f"color vaporized !")
         else:
             await ctx.send("no color role to remove !")
         return
@@ -120,8 +120,8 @@ async def color(ctx, *color):
 
     # assign the role we found/created
     await author.add_roles(assigned_role)
-
-    await ctx.send(f"colorized !")
+    await ctx.send(f"colorized {author.mention} to {color}!")
+    await message.delete()
 
 # remove colors that somehow dont get deleted
 @bot.command()

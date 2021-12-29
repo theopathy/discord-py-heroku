@@ -2,6 +2,7 @@ import os
 import re
 import discord
 import requests
+import random
 import asyncio
 import uwuify
 from discord.ext import commands

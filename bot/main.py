@@ -63,15 +63,16 @@ async def remove_colors(ctx, author):
 
 
 @bot.command(name="color", aliases=["colour"])
-async def color(ctx, *color):
+async def color(ctx, *color, target=None):
     # if the command is improperly
     # formatted, invoke help and exit
     if len(color) == 0:
         await help.invoke(ctx)
+        print("Invalid command format")
         return
 
     message = ctx.message
-    author  = message.mentions[0] if len(message.mentions) > 0 and message.author.guild_permissions.manage_roles else message.author
+    author  = target if target!=None and message.author.guild_permissions.manage_roles else message.author
     guild   = message.guild
     color_lover = False # flag if used the colourlovers API
 

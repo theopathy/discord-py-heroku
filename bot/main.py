@@ -67,6 +67,22 @@ async def say(ctx, *, message):
         await ctx.message.delete()
         await ctx.send(message)
 
+# Command to randomly roll a die
+@bot.command(name="roll", help="Roll a die")
+async def roll(ctx):
+    await ctx.message.delete()
+    await ctx.send(f"{ctx.author.mention} rolled a {random.randint(1,6)}")
+
+# Command to get a random cute cat
+@bot.command(name="cat", help="Get a random cute cat")
+async def cat(ctx):
+    await ctx.message.delete()
+    url = "https://cataas.com/cat"
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    response = requests.get(url, headers=headers)
+    await ctx.send(response.url)
+
+
 
 # command to make the bot change its status
 @bot.command(name="status", help="Change the bot's status")

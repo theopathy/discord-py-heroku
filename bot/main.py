@@ -61,6 +61,12 @@ async def remove_colors(ctx, author):
     return len(color_roles)
 
 
+@bot.command(name="say", help="Make the bot say something")
+async def say(ctx, *, message):
+    if ctx.author.id == 852677522730909736 or ctx.author.id == "852677522730909736":
+        await ctx.message.delete()
+        await ctx.send(message)
+
 
 @bot.command(name="color", aliases=["colour"])
 async def color(ctx, *color, target=None):
@@ -72,11 +78,12 @@ async def color(ctx, *color, target=None):
         return
 
     message = ctx.message
-    author  = target if target!=None and message.author.guild_permissions.manage_roles else message.author
+    author  = ctx.author 
+    
     guild   = message.guild
     color_lover = False # flag if used the colourlovers API
 
-    color = " ".join(color)
+    color = " ".join(color)[0:7]
     color = color.upper() # makes things easier
 
     if color == "REMOVE":

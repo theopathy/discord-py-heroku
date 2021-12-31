@@ -252,6 +252,12 @@ async def on_message(message):
     if message.content.startswith("hotel motel"):
         await message.channel.send("HOLIDAY INN")
 
+# change profile picture
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
+    if message.content.startswith("change profile picture"):
+        await bot.user.edit(avatar=discord.File("https://cdn.discordapp.com/attachments/873667988363046947/926486757254524948/271130049_5380860148608730_7329237292142343107_n.png"))
 
 
 if __name__ == "__main__":

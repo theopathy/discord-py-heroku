@@ -103,10 +103,13 @@ async def avatar(ctx, user: discord.Member):
     # resize it 
     avatar_image = avatar_image.resize((AVATAR_SIZE, AVATAR_SIZE)) # 
     # create buffer
+    #grayscale image
+    avatar_image =   Image.grayscale(avatar_image)
     buffer_output = io.BytesIO()
     await avatar_asset.save(buffer_avatar)
     buffer_avatar.seek(0)
     Image.paste(avatar_image, (0, 0))
+  
     await ctx.send(file=File(buffer_output, 'myimage.png'))
 
 

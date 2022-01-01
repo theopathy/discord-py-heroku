@@ -263,7 +263,7 @@ async def on_message(message):
 @bot.command()
 async def dm(ctx, user: discord.Member, *, message):
     await user.send(message)
-    await ctx.send(f"Message sent to {user.mention}")
+    await ctx.send(f"Message sent to {user.mention} Sent by {ctx.author.mention}")
     await ctx.message.delete()
 
 if __name__ == "__main__":

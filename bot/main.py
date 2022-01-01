@@ -96,7 +96,10 @@ async def cat(ctx):
 @bot.command(name="jail", help="Get the avatar of a user")
 async def avatar(ctx, user: discord.Member):
     AVATAR_SIZE = 128
-    draw = ImageDraw.Draw(image)
+       
+    image = Image.new('RGB', (AVATAR_SIZE, AVATAR_SIZE)) # RGB, RGBA (with alpha), L (grayscale), 1 (black & white)
+
+
     avatar_asset = ctx.author.avatar_url_as(format='jpg', size=AVATAR_SIZE)
     buffer_avatar = io.BytesIO()
     avatar_image = Image.open(buffer_avatar)
@@ -108,7 +111,7 @@ async def avatar(ctx, user: discord.Member):
     buffer_output = io.BytesIO()
     await avatar_asset.save(buffer_avatar)
     buffer_avatar.seek(0)
-    Image.paste(avatar_image, (0, 0))
+    image.paste(avatar_image, (0, 0))
   
     await ctx.send(file=File(buffer_output, 'myimage.png'))
 

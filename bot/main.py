@@ -10,7 +10,7 @@ import uwuify
 from discord.ext import commands
 import urllib.request    
 from PIL import Image, ImageDraw, ImageFont
-
+from PIL import *
 
 bot = commands.Bot(command_prefix="!")
 TOKEN = os.getenv("DISCORD_TOKEN")

@@ -2,10 +2,15 @@ import os
 import re
 import discord
 import requests
+import io
 import random
 import asyncio
+from discord import File
 import uwuify
 from discord.ext import commands
+import urllib.request    
+from PIL import Image, ImageDraw, ImageFont
+
 
 bot = commands.Bot(command_prefix="!")
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -85,6 +90,25 @@ async def cat(ctx):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     response = requests.get(url, headers=headers)
     await ctx.send(response.url)
+
+
+# Get the user avatar and post it
+@bot.command(name="jail", help="Get the avatar of a user")
+async def avatar(ctx, user: discord.Member):
+    AVATAR_SIZE = 128
+    draw = ImageDraw.Draw(image)
+    avatar_asset = ctx.author.avatar_url_as(format='jpg', size=AVATAR_SIZE)
+    buffer_avatar = io.BytesIO()
+    avatar_image = Image.open(buffer_avatar)
+    # resize it 
+    avatar_image = avatar_image.resize((AVATAR_SIZE, AVATAR_SIZE)) # 
+    # create buffer
+    buffer_output = io.BytesIO()
+    await avatar_asset.save(buffer_avatar)
+    buffer_avatar.seek(0)
+    image.paste(avatar_image, (0, 0))
+    await ctx.send(file=File(buffer_output, 'myimage.png'))
+
 
 # Command to uwu text.
 # This is a very simple implementation,

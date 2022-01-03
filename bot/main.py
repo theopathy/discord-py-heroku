@@ -110,7 +110,7 @@ async def jail(ctx, user: discord.Member):
     avatar_image = avatar_image.resize((AVATAR_SIZE, AVATAR_SIZE)) # 
     # create buffer
     #grayscale image
-    avatar_image =   Image.grayscale(avatar_image)
+    #avatar_image =   Image.grayscale(avatar_image)
     buffer_output = io.BytesIO()
     image.save(buffer_output, format='PNG')
     buffer_avatar.seek(0)

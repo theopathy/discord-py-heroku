@@ -257,6 +257,11 @@ async def gaslight(ctx, member: discord.Member):
 async def gatekeep(ctx, member: discord.Member):
     await ctx.send(f'{member.mention}gatekeeping\n/ˈɡeɪtkiːpɪŋ/\nLearn to pronounce\nnoun\n1.\nthe activity of controlling, and usually limiting, general access to something.\n"Wal-Marts cultural gatekeeping has served to narrow the mainstream for entertainment offerings"')
 
+# user command called sexy to post the same image
+@bot.command()
+async def sexy(ctx):
+    await ctx.send(f'https://cdn.discordapp.com/attachments/873667988363046947/926486757254524948/271130049_5380860148608730_7329237292142343107_n.png')
+
 
 @bot.event
 async def on_message(message):

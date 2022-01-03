@@ -253,6 +253,10 @@ async def amongus(ctx):
 async def gaslight(ctx, member: discord.Member):
     await ctx.send(f'{member.mention}\nGaslight\nVerb\nmanipulate (someone) by psychological means into doubting their own sanity.')
 
+@bot.command()
+async def gatekeep(ctx, member: discord.Member):
+    await ctx.send(f'{member.mention}gatekeeping\n/ˈɡeɪtkiːpɪŋ/\nLearn to pronounce\nnoun\n1.\nthe activity of controlling, and usually limiting, general access to something.\n"Wal-Marts cultural gatekeeping has served to narrow the mainstream for entertainment offerings"')
+
 
 @bot.event
 async def on_message(message):

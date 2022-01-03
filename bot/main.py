@@ -107,14 +107,15 @@ async def jail(ctx, user: discord.Member):
     
     avatar_image = Image.open(buffer_avatar)
     # resize it 
-    avatar_image = avatar_image.resize((AVATAR_SIZE, AVATAR_SIZE)) # 
+    avatar_image = avatar_image.resize((AVATAR_SIZE, AVATAR_SIZE)) 
+    image.paste(avatar_image, (0, 0))# 
     # create buffer
     #grayscale image
     #avatar_image =   Image.grayscale(avatar_image)
     buffer_output = io.BytesIO()
     image.save(buffer_output, format='PNG')
     buffer_avatar.seek(0)
-    image.paste(avatar_image, (0, 0))
+   
   
     await ctx.send(file=File(buffer_output, 'myimage.png'))
 

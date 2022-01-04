@@ -297,6 +297,8 @@ async def on_message(message):
         await message.delete()
     if message.content.startswith("hotel motel"):
         await message.channel.send("HOLIDAY INN")
+    if message.content.startswith("good bot"):
+        await message.channel.send(":)) < 3")
 # command to dm a user
 @bot.command()
 async def dm(ctx, user: discord.Member, *, message):

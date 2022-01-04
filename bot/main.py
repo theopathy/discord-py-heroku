@@ -294,7 +294,7 @@ async def on_message(message):
 async def on_message(message):
     await bot.process_commands(message)
     if message.content.startswith("https://c.tenor.com/OXevc9fjZmgAAAAM/tasting-milk-antony-starr.gif"):
-        await message.delete()
+        await message.channel.send("GET SOME HELP!")
     if message.content.startswith("hotel motel"):
         await message.channel.send("HOLIDAY INN")
     if message.content.startswith("good bot"):
